@@ -48,8 +48,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  cursor: pointer;
 }
 
 /* main */
@@ -380,6 +378,11 @@ body {
   flex-direction: column;
   gap: 12px;
 }
+.footer-col-info-line {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
 #footer .logo {
   text-transform: uppercase;
   font-weight: bold;
@@ -394,9 +397,6 @@ body {
   justify-content: space-between;
 }
 .footer-link {
-  text-decoration: underline;
+  color: #fff;
   text-underline-offset: 4px;
-  &:hover {
-    cursor: pointer;
-  }
 }
