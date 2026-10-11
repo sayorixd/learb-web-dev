@@ -116,6 +116,12 @@ function updateMonthDisplay() {
     if (isSelectable) {
       dayCell.dataset.day = cell.day;
       dayCell.onclick = handleSelectDay;
+
+      if (selectedYear == today.getFullYear() && selectedMonth == today.getMonth() && cell.day == today.getDate()) {
+        dayCell.classList.add("active");
+        selectedDay = cell.day;
+        activeDayCell = dayCell;
+      }
     } else {
       dayCell.classList.add("disabled");
     }
