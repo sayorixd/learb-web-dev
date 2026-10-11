@@ -1,14 +1,192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Выбор даты и времени</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
+
     <div class="page">
-      <!-- Перенесите вашу верстку. Удалите статичные данные. Подключите скрипт -->
+      <header id="header">
+        <div class="logo">Barber Shop</div>
+        <nav class="nav-links">
+          <a class="nav-item" href="#">Услуги</a>
+          <a class="nav-item" href="#">Галерея</a>
+          <a class="nav-item" href="#">Команда</a>
+          <a class="nav-item" href="#">Отзывы</a>
+          <a class="nav-item" href="#">Контакты</a>
+        </nav>
+      </header>
+
+      <main class="main">
+        <section class="step-indicator">
+          <div class="step">
+            <div class="circle"><span>1</span></div>
+            <span class="step-label">Мастер</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step">
+            <div class="circle"><span>2</span></div>
+            <span class="step-label">Услуга</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step active">
+            <div class="circle"><span>3</span></div>
+            <span class="step-label">Календарь</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step">
+            <div class="circle"><span>4</span></div>
+            <span class="step-label">Контакты</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step">
+            <div class="circle"><span>5</span></div>
+            <span class="step-label">Оформление</span>
+          </div>
+        </section>
+
+        <div class="content">
+          <div class="header-row">
+            <button class="back-button">← Назад</button>
+            <span class="title">Выберите время записи</span>
+          </div>
+
+          <div class="calendar">
+            <div class="calendar-card">
+              <div class="month-display">
+                <span class="month-year-label">Месяц Год</span>
+                <div class="month-display-buttons">
+                  <button class="arrow-button">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button class="arrow-button">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="weekday-display">
+                <p>Пн</p>
+                <p>Вт</p>
+                <p>Ср</p>
+                <p>Чт</p>
+                <p>Пт</p>
+                <p>Сб</p>
+                <p>Вс</p>
+              </div>
+              <div class="calendar-grid">
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+                <div class="calendar-day disabled">0</div>
+              </div>
+            </div>
+
+            <div class="time-slots-card">
+              <div class="time-slots-title">Доступное время</div>
+              <div class="time-slots-grid">
+                <div class="time-slots-item"><span>10:00</span></div>
+                <div class="time-slots-item disabled"><span>11:00</span></div>
+                <div class="time-slots-item"><span>12:00</span></div>
+                <div class="time-slots-item disabled"><span>13:00</span></div>
+                <div class="time-slots-item"><span>14:00</span></div>
+                <div class="time-slots-item"><span>15:00</span></div>
+                <div class="time-slots-item"><span>16:00</span></div>
+                <div class="time-slots-item"><span>17:00</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-cta-bar">
+            <div class="selected-time-output"></div>
+            <button class="button-primary">Далее &rarr;</button>
+          </div>
+        </div>
+      </main>
+
+      <footer id="footer">
+        <div class="footer-info">
+          <div class="footer-cols">
+            <div class="footer-col">
+              <div class="logo">Barber Shop</div>
+              <div class="footer-description">Дружелюбное описание</div>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col-title"><b>Контакты</b></div>
+              <div class="footer-col-info">
+                <div class="footer-col-info-line">
+                  <i class="fa fa-map-marker"></i>
+                  ул. Садовая, 15, Москва
+                </div>
+                <div class="footer-col-info-line">
+                  <i class="fa fa-phone"></i>
+                  +7 (495) 123-45-67
+                </div>
+              </div>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col-title"><b>Режим работы</b></div>
+              <div class="footer-col-info">
+                <div>Пн-Пт: 9:00 - 21:00</div>
+                <div>Сб-Вс: 10:00 - 19:00</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p class="copyright">&copy; 2026. Все права защищены.</p>
+            <a class="footer-link" href="#">Политика конфиденциальности</a>
+          </div>
+        </div>
+      </footer>
     </div>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
