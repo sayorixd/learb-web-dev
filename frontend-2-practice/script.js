@@ -4,13 +4,17 @@ import { RESERVATIONS } from "./data.js";
 const today = new Date();
 
 // 2. Состояние
-const selectedTimeOutput = document.getElementsByClassName("selected-time-output")[0];
+const modal = document.getElementById("modal");
+const selectedTimeOutput = document.getElementsByClassName(
+  "selected-time-output",
+)[0];
 const monthYearLabel = document.getElementsByClassName("month-year-label")[0];
 const calendarGrid = document.getElementsByClassName("calendar-grid")[0];
 const calendarLeftArrowButton =
   document.getElementsByClassName("arrow-button")[0];
 const calendarRightArrowButton =
   document.getElementsByClassName("arrow-button")[1];
+const nextButton = document.getElementById("next-button");
 let activeDayCell;
 
 const timeSlotsGrid = document.getElementsByClassName("time-slots-grid")[0];
@@ -117,7 +121,11 @@ function updateMonthDisplay() {
       dayCell.dataset.day = cell.day;
       dayCell.onclick = handleSelectDay;
 
-      if (selectedYear == today.getFullYear() && selectedMonth == today.getMonth() && cell.day == today.getDate()) {
+      if (
+        selectedYear == today.getFullYear() &&
+        selectedMonth == today.getMonth() &&
+        selectedDay == cell.day
+      ) {
         dayCell.classList.add("active");
         selectedDay = cell.day;
         activeDayCell = dayCell;
@@ -232,12 +240,13 @@ function handleSelectTime(event) {
 function updateTimeOutput() {
   if (!(selectedYear && selectedMonth && selectedDay && selectedTime)) {
     selectedTimeOutput.innerHTML = "";
+    nextButton.disabled = true;
     return;
   }
 
   const timeOutput = new Date(
     selectedYear,
-    selectedMonth + 1,
+    selectedMonth,
     selectedDay,
     ...selectedTime.split(":").map(Number),
   );
@@ -255,20 +264,50 @@ function updateTimeOutput() {
       })
       .replace(/^./, (l) => l.toUpperCase())
       .replace(" в ", " • ");
+
+  nextButton.disabled = false;
 }
 
-function addArrowClickHandlers() {
+function showReservationModal() {
+  const formattedDate = new Date(
+    selectedYear,
+    selectedMonth,
+    selectedDay,
+    ...selectedTime.split(":").map(Number),
+  ).toLocaleString("ru-RU", {
+    hour: "2-digit",
+    minute: "2-digit",
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
+
+  modal.innerHTML = `
+  <h3>Вы записаны на ${formattedDate}.</h3>
+  <div><button commandfor="modal" command="close" class="button-primary">OK</button></div>
+  `;
+
+  modal.showModal();
+}
+
+function addButtonClickHandlers() {
   calendarLeftArrowButton.addEventListener("click", handleLeftArrowClick);
   calendarRightArrowButton.addEventListener("click", handleRightArrowClick);
+  nextButton.addEventListener("click", handleNextButtonClick);
+}
+
+function handleNextButtonClick() {
+  setTimeout(showReservationModal, 100);
 }
 
 // 5. Инициализация
 function init() {
   selectedYear = today.getFullYear();
   selectedMonth = today.getMonth();
-  
+  selectedDay = today.getDate();
 
-  addArrowClickHandlers();
+  addButtonClickHandlers();
+
   updateMonthDisplay();
   updateTimeSlotsDispay();
 }

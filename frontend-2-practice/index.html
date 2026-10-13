@@ -14,6 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
+    <dialog id="modal">
+      <h3>Вы записались на дату {date}</h3>
+      <div><button commandfor="modal" command="close" class="button-primary">OK</button></div>
+    </dialog>
 
     <div class="page">
       <header id="header">
@@ -146,7 +150,7 @@
 
           <div class="footer-cta-bar">
             <div class="selected-time-output"></div>
-            <button class="button-primary">Далее &rarr;</button>
+            <button class="button-primary" id="next-button">Далее &rarr;</button>
           </div>
         </div>
       </main>

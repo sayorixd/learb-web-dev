@@ -13,6 +13,24 @@ body {
   background-color: #f9f9f9;
 }
 
+#modal[open] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  padding: 32px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#modal[open] div {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
 /* header */
 #header {
   width: 100%;
@@ -367,9 +385,16 @@ body {
 }
 .button-primary:hover {
   background-color: #6F5F81;
+  cursor: pointer;
 }
 .button-primary:active {
   background-color: #4F345A;
+}
+.button-primary:disabled {
+  background-color: #EDEDED;
+  color: #333;
+  border-color: #EDEDED;
+  cursor: default;
 }
 
 /* footer */
