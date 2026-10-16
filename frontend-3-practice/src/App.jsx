@@ -47,11 +47,16 @@
 //
 // Ниже — пустой каркас. Здесь можно начать писать.
 
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Main from "./components/Main";
+
 function App() {
   return (
-    <div>
-      {/* Начните отсюда. Например, разметьте .page, добавьте шапку,
-            основную область, подвал. */}
+    <div className="page">
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }
